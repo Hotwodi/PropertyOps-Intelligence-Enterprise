@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Tree view -->
+        <record id="pie_vacancy_timeline_tree" model="ir.ui.view">
+            <field name="name">pie.vacancy.timeline.tree</field>
+            <field name="model">pie.vacancy.timeline</field>
+            <field name="arch" type="xml">
+                <tree string="Vacancy Timeline" decoration-success="risk_level=='low'" decoration-warning="risk_level=='medium'" decoration-danger="risk_level in ('high','critical')">
+                    <field name="name"/>
+                    <field name="property_id"/>
+                    <field name="unit_id"/>
+                    <field name="lease_expiry"/>
+                    <field name="days_until_expiry"/>
+                    <field name="ai_renewal_probability" widget="percentage"/>
+                    <field name="ai_market_demand"/>
+                    <field name="suggested_action"/>
+                    <field name="risk_level" widget="badge"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form view -->
+        <record id="pie_vacancy_timeline_form" model="ir.ui.view">
+            <field name="name">pie.vacancy.timeline.form</field>
+            <field name="model">pie.vacancy.timeline</field>
+            <field name="arch" type="xml">
+                <form string="Vacancy Timeline">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="property_id"/>
+                                <field name="unit_id"/>
+                            </group>
+                            <group>
+                                <field name="lease_expiry"/>
+                                <field name="days_until_expiry"/>
+                                <field name="risk_level" widget="badge"/>
+                            </group>
+                        </group>
+                        <group string="AI Insights">
+                            <group>
+                                <field name="ai_renewal_probability" widget="percentage"/>
+                                <field name="ai_market_demand"/>
+                            </group>
+                            <group>
+                                <field name="suggested_action"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="pie_vacancy_timeline_action" model="ir.actions.act_window">
+            <field name="name">Vacancy Timeline</field>
+            <field name="res_model">pie.vacancy.timeline</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new vacancy risk timeline entry
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>

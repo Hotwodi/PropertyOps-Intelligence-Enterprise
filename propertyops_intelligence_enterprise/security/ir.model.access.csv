@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_pie_portfolio_dashboard_user,pie.portfolio.dashboard.user,model_pie_portfolio_dashboard,base.group_user,1,1,1,1
+access_pie_lease_abstraction_user,pie.lease.abstraction.user,model_pie_lease_abstraction,base.group_user,1,1,1,1
+access_pie_cam_reconciliation_user,pie.cam.reconciliation.user,model_pie_cam_reconciliation,base.group_user,1,1,1,1
+access_pie_escalation_rule_user,pie.escalation.rule.user,model_pie_escalation_rule,base.group_user,1,1,1,1
+access_pie_owner_report_user,pie.owner.report.user,model_pie_owner_report,base.group_user,1,1,1,1
+access_pie_vacancy_timeline_user,pie.vacancy.timeline.user,model_pie_vacancy_timeline,base.group_user,1,1,1,1
+access_pie_arrears_workflow_user,pie.arrears.workflow.user,model_pie_arrears_workflow,base.group_user,1,1,1,1

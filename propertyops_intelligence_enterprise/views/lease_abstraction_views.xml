@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Tree view -->
+        <record id="pie_lease_abstraction_tree" model="ir.ui.view">
+            <field name="name">pie.lease.abstraction.tree</field>
+            <field name="model">pie.lease.abstraction</field>
+            <field name="arch" type="xml">
+                <tree string="Lease Abstractions" decoration-info="abstraction_status=='processing'" decoration-success="abstraction_status=='reviewed'">
+                    <field name="name"/>
+                    <field name="lease_id"/>
+                    <field name="abstraction_status" widget="badge"/>
+                    <field name="ai_confidence" widget="percentage"/>
+                    <field name="reviewed_by"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form view -->
+        <record id="pie_lease_abstraction_form" model="ir.ui.view">
+            <field name="name">pie.lease.abstraction.form</field>
+            <field name="model">pie.lease.abstraction</field>
+            <field name="arch" type="xml">
+                <form string="Lease Abstraction">
+                    <header>
+                        <button name="action_set_processing" type="object" string="Set Processing" class="btn-primary" invisible="abstraction_status not in ('pending',)"/>
+                        <button name="action_set_completed" type="object" string="Set Completed" class="btn-primary" invisible="abstraction_status not in ('pending','processing')"/>
+                        <button name="action_set_reviewed" type="object" string="Mark Reviewed" class="btn-success" invisible="abstraction_status not in ('completed','processing')"/>
+                        <field name="abstraction_status" widget="statusbar" statusbar_visible="pending,processing,completed,reviewed"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="lease_id"/>
+                                <field name="reviewed_by"/>
+                            </group>
+                            <group>
+                                <field name="document_file" filename="document_filename"/>
+                                <field name="document_filename" invisible="1"/>
+                                <field name="ai_confidence" widget="percentage"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Key Dates" name="key_dates">
+                                <field name="key_dates_extracted"/>
+                            </page>
+                            <page string="Rent Terms" name="rent_terms">
+                                <field name="rent_terms_extracted"/>
+                            </page>
+                            <page string="Escalation Clauses" name="escalation_clauses">
+                                <field name="escalation_clauses_extracted"/>
+                            </page>
+                            <page string="Renewal Options" name="renewal_options">
+                                <field name="renewal_options_extracted"/>
+                            </page>
+                            <page string="Deposits" name="deposits">
+                                <field name="deposits_extracted"/>
+                            </page>
+                            <page string="CAM Terms" name="cam_terms">
+                                <field name="cam_terms_extracted"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="pie_lease_abstraction_action" model="ir.actions.act_window">
+            <field name="name">Lease Abstractions</field>
+            <field name="res_model">pie.lease.abstraction</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Upload a lease document to begin abstraction
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>

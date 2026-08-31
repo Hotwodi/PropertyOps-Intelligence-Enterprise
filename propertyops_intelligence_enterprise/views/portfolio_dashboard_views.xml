@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Tree view -->
+        <record id="pie_portfolio_dashboard_tree" model="ir.ui.view">
+            <field name="name">pie.portfolio.dashboard.tree</field>
+            <field name="model">pie.portfolio.dashboard</field>
+            <field name="arch" type="xml">
+                <tree string="Portfolio Dashboards">
+                    <field name="name"/>
+                    <field name="period"/>
+                    <field name="total_properties"/>
+                    <field name="total_units"/>
+                    <field name="occupied_units"/>
+                    <field name="occupancy_rate"/>
+                    <field name="total_rent_roll" widget="monetary"/>
+                    <field name="delinquent_amount" widget="monetary"/>
+                    <field name="noi_proxy" widget="monetary"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form view -->
+        <record id="pie_portfolio_dashboard_form" model="ir.ui.view">
+            <field name="name">pie.portfolio.dashboard.form</field>
+            <field name="model">pie.portfolio.dashboard</field>
+            <field name="arch" type="xml">
+                <form string="Portfolio Dashboard">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="period"/>
+                                <field name="currency_id" invisible="1"/>
+                            </group>
+                            <group>
+                                <field name="total_properties"/>
+                                <field name="total_units"/>
+                                <field name="occupied_units"/>
+                                <field name="occupancy_rate" widget="percentage"/>
+                            </group>
+                        </group>
+                        <group string="Financials">
+                            <group>
+                                <field name="total_rent_roll" widget="monetary"/>
+                                <field name="delinquent_amount" widget="monetary"/>
+                                <field name="noi_proxy" widget="monetary"/>
+                            </group>
+                            <group>
+                                <field name="maintenance_backlog"/>
+                                <field name="ai_vacancy_forecast"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="pie_portfolio_dashboard_action" model="ir.actions.act_window">
+            <field name="name">Portfolio Dashboards</field>
+            <field name="res_model">pie.portfolio.dashboard</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new portfolio dashboard
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>

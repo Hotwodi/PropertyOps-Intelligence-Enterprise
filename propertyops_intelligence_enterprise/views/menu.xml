@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Root menu -->
+        <menuitem id="menu_pie_root"
+                  name="PropertyOps Enterprise"
+                  sequence="10"
+                  web_icon="propertyops_intelligence_enterprise,static/description/icon.png"/>
+
+        <!-- Submenus -->
+        <menuitem id="menu_pie_portfolio_dashboard"
+                  name="Portfolio Dashboard"
+                  parent="menu_pie_root"
+                  action="pie_portfolio_dashboard_action"
+                  sequence="10"/>
+
+        <menuitem id="menu_pie_lease_abstraction"
+                  name="Lease Abstraction"
+                  parent="menu_pie_root"
+                  action="pie_lease_abstraction_action"
+                  sequence="20"/>
+
+        <menuitem id="menu_pie_cam_reconciliation"
+                  name="CAM Reconciliation"
+                  parent="menu_pie_root"
+                  action="pie_cam_reconciliation_action"
+                  sequence="30"/>
+
+        <menuitem id="menu_pie_escalation_rule"
+                  name="Escalation Rules"
+                  parent="menu_pie_root"
+                  action="pie_escalation_rule_action"
+                  sequence="40"/>
+
+        <menuitem id="menu_pie_owner_report"
+                  name="Owner Reports"
+                  parent="menu_pie_root"
+                  action="pie_owner_report_action"
+                  sequence="50"/>
+
+        <menuitem id="menu_pie_vacancy_timeline"
+                  name="Vacancy Timeline"
+                  parent="menu_pie_root"
+                  action="pie_vacancy_timeline_action"
+                  sequence="60"/>
+
+        <menuitem id="menu_pie_arrears_workflow"
+                  name="Arrears Workflow"
+                  parent="menu_pie_root"
+                  action="pie_arrears_workflow_action"
+                  sequence="70"/>
+    </data>
+</odoo>

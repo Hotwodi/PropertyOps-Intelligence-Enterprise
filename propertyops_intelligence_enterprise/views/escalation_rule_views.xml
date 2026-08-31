@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Tree view -->
+        <record id="pie_escalation_rule_tree" model="ir.ui.view">
+            <field name="name">pie.escalation.rule.tree</field>
+            <field name="model">pie.escalation.rule</field>
+            <field name="arch" type="xml">
+                <tree string="Escalation Rules">
+                    <field name="name"/>
+                    <field name="lease_id"/>
+                    <field name="escalation_type"/>
+                    <field name="escalation_rate" widget="percentage"/>
+                    <field name="calculated_new_rent" widget="monetary"/>
+                    <field name="next_escalation_date"/>
+                    <field name="auto_apply"/>
+                    <field name="last_applied"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form view -->
+        <record id="pie_escalation_rule_form" model="ir.ui.view">
+            <field name="name">pie.escalation.rule.form</field>
+            <field name="model">pie.escalation.rule</field>
+            <field name="arch" type="xml">
+                <form string="Escalation Rule">
+                    <header>
+                        <button name="action_apply_escalation" type="object" string="Apply Escalation" class="btn-primary"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="lease_id"/>
+                                <field name="escalation_type"/>
+                                <field name="auto_apply"/>
+                            </group>
+                            <group>
+                                <field name="escalation_rate" widget="percentage"/>
+                                <field name="base_year_cpi"/>
+                                <field name="current_cpi"/>
+                                <field name="calculated_new_rent" widget="monetary"/>
+                                <field name="next_escalation_date"/>
+                                <field name="last_applied"/>
+                                <field name="currency_id" invisible="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="pie_escalation_rule_action" model="ir.actions.act_window">
+            <field name="name">Escalation Rules</field>
+            <field name="res_model">pie.escalation.rule</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new rent escalation rule
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>
