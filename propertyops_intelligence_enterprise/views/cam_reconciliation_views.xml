@@ -6,7 +6,7 @@
             <field name="name">pie.cam.reconciliation.tree</field>
             <field name="model">pie.cam.reconciliation</field>
             <field name="arch" type="xml">
-                <tree string="CAM Reconciliations" decoration-success="state=='reconciled'" decoration-danger="state=='disputed'" decoration-muted="state=='closed'">
+                <list string="CAM Reconciliations" decoration-success="state=='reconciled'" decoration-danger="state=='disputed'" decoration-muted="state=='closed'">
                     <field name="name"/>
                     <field name="property_id"/>
                     <field name="period"/>
@@ -15,7 +15,7 @@
                     <field name="tenant_amount" widget="monetary"/>
                     <field name="variance" widget="monetary"/>
                     <field name="state" widget="badge"/>
-                </tree>
+                </list>
             </field>
         </record>
 
@@ -60,7 +60,7 @@
         <record id="pie_cam_reconciliation_action" model="ir.actions.act_window">
             <field name="name">CAM Reconciliations</field>
             <field name="res_model">pie.cam.reconciliation</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">
                     Create a new CAM / NNN reconciliation

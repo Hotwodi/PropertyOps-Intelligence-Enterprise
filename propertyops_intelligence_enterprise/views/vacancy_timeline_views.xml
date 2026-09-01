@@ -6,7 +6,7 @@
             <field name="name">pie.vacancy.timeline.tree</field>
             <field name="model">pie.vacancy.timeline</field>
             <field name="arch" type="xml">
-                <tree string="Vacancy Timeline" decoration-success="risk_level=='low'" decoration-warning="risk_level=='medium'" decoration-danger="risk_level in ('high','critical')">
+                <list string="Vacancy Timeline" decoration-success="risk_level=='low'" decoration-warning="risk_level=='medium'" decoration-danger="risk_level in ('high','critical')">
                     <field name="name"/>
                     <field name="property_id"/>
                     <field name="unit_id"/>
@@ -16,7 +16,7 @@
                     <field name="ai_market_demand"/>
                     <field name="suggested_action"/>
                     <field name="risk_level" widget="badge"/>
-                </tree>
+                </list>
             </field>
         </record>
 
@@ -57,7 +57,7 @@
         <record id="pie_vacancy_timeline_action" model="ir.actions.act_window">
             <field name="name">Vacancy Timeline</field>
             <field name="res_model">pie.vacancy.timeline</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">
                     Create a new vacancy risk timeline entry

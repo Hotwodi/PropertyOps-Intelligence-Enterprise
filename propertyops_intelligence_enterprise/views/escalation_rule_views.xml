@@ -6,7 +6,7 @@
             <field name="name">pie.escalation.rule.tree</field>
             <field name="model">pie.escalation.rule</field>
             <field name="arch" type="xml">
-                <tree string="Escalation Rules">
+                <list string="Escalation Rules">
                     <field name="name"/>
                     <field name="lease_id"/>
                     <field name="escalation_type"/>
@@ -15,7 +15,7 @@
                     <field name="next_escalation_date"/>
                     <field name="auto_apply"/>
                     <field name="last_applied"/>
-                </tree>
+                </list>
             </field>
         </record>
 
@@ -55,7 +55,7 @@
         <record id="pie_escalation_rule_action" model="ir.actions.act_window">
             <field name="name">Escalation Rules</field>
             <field name="res_model">pie.escalation.rule</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">
                     Create a new rent escalation rule

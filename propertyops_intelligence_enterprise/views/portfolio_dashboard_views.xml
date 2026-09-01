@@ -6,7 +6,7 @@
             <field name="name">pie.portfolio.dashboard.tree</field>
             <field name="model">pie.portfolio.dashboard</field>
             <field name="arch" type="xml">
-                <tree string="Portfolio Dashboards">
+                <list string="Portfolio Dashboards">
                     <field name="name"/>
                     <field name="period"/>
                     <field name="total_properties"/>
@@ -16,7 +16,7 @@
                     <field name="total_rent_roll" widget="monetary"/>
                     <field name="delinquent_amount" widget="monetary"/>
                     <field name="noi_proxy" widget="monetary"/>
-                </tree>
+                </list>
             </field>
         </record>
 
@@ -60,7 +60,7 @@
         <record id="pie_portfolio_dashboard_action" model="ir.actions.act_window">
             <field name="name">Portfolio Dashboards</field>
             <field name="res_model">pie.portfolio.dashboard</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">
                     Create a new portfolio dashboard

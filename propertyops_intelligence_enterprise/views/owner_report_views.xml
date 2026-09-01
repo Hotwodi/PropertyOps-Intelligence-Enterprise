@@ -6,7 +6,7 @@
             <field name="name">pie.owner.report.tree</field>
             <field name="model">pie.owner.report</field>
             <field name="arch" type="xml">
-                <tree string="Owner Reports">
+                <list string="Owner Reports">
                     <field name="name"/>
                     <field name="property_id"/>
                     <field name="owner_id"/>
@@ -17,7 +17,7 @@
                     <field name="ai_performance_score"/>
                     <field name="generated_date"/>
                     <field name="sent_date"/>
-                </tree>
+                </list>
             </field>
         </record>
 
@@ -66,7 +66,7 @@
         <record id="pie_owner_report_action" model="ir.actions.act_window">
             <field name="name">Owner Reports</field>
             <field name="res_model">pie.owner.report</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">
                     Create a new owner report
